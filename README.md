@@ -6,6 +6,7 @@ Thus i thank :
 - Ben Golus , shader guru extraordinaire who patiently helped me and pointed me in a right direction
 - Art of Code, youtuber that explains the raymarcher magic, also present on shadertoy site
 - neginfinity, for solution to my problems with orthographic projections (shadow casting under directional light)
+- user "SCRN-VRC" on github for "cheap realtime ambient occlusion" code - ingenious idea
 - Jasper Flick from Catlike coding for describing inner workings of shaders
 - sites Book of Shaders and ShaderToy for having a simply amazing shader demonstrations and explainers
 - Inigo Quilez for doing the hard work of making math/sdf functions much needed in raymarching
