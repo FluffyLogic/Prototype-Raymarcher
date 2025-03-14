@@ -3,12 +3,12 @@ ACKNOWLEGDEMENTS
 Firstly, i'd like to give credit where credit is due - without the kind souls here on the internet i would have never managed to cobble together these lines of code into something workable.
 
 Thus i thank :
-Ben Golus , shader guru extraordinaire who patiently helped me and pointed me in a right direction
-Art of Code, youtuber that explains the raymarcher magic
-neginfinity, for solution to my problems with orthographic projections (for shadow casting under directional light)
-Jasper Flick from Catlike coding for describing inner workings of shaders
-sites Book of Shaders and ShaderToy for having a simply amazing shader demonstrations and explainers
-Inigo Quilez for doing the hard work of making math/sdf functions much needed in raymarching.
+- Ben Golus , shader guru extraordinaire who patiently helped me and pointed me in a right direction
+- Art of Code, youtuber that explains the raymarcher magic
+- neginfinity, for solution to my problems with orthographic projections (for shadow casting under directional light)
+- Jasper Flick from Catlike coding for describing inner workings of shaders
+- sites Book of Shaders and ShaderToy for having a simply amazing shader demonstrations and explainers
+- Inigo Quilez for doing the hard work of making math/sdf functions much needed in raymarching.
 
 DESCRIPTION
 
