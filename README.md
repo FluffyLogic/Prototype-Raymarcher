@@ -12,6 +12,8 @@ Thus i thank :
 - user "dust" on shadertoy site whose code for raymarching function got me out of the hot water
 
 Where possible, i have added comments in code relating the used function to the sources created by above authors.
+Since this is my pet project i intermittently worked on, i most likely managed to loose track of all authors whose published code i used to construct my own files.
+If i recall any more of them, i'll add the to the above list and/or mention in shader code where applicable.
 
 DESCRIPTION
 
