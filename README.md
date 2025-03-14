@@ -1,4 +1,4 @@
-ACKNOWLEGDEMENTS
+ACKNOWLEDGEMENTS
 
 Firstly, i'd like to give credit where credit is due - without the kind souls here on the internet i would have never managed to cobble together these lines of code into something workable.
 
