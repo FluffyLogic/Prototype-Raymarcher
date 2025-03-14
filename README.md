@@ -23,7 +23,7 @@ Both shaders have same file structure, and almost same function names and functi
 
 TECHNICAL
 
-I tested these shaders under Unity 2019 for Windows and Unity 2021 for Linux. The Unity 2019 has quirks under Linux (so does 2021, but there are workarounds one can find on internet). They should ofcourse work withing forward rendering inside built-in rendering pipeline.
+I tested these shaders under Unity 2019 for Windows and Unity 2021 for Linux. The Unity 2019 has quirks under Linux (so does 2021, but there are workarounds one can find on internet). They should ofcourse work within forward rendering inside built-in rendering pipeline.
 
  The shaders are designed to write to depth buffer and have a shadowcaster passes. For opaque shader, set to render at "geometry" queue, this means you should get a rendered "object" that is equal to normal meshes in scene. For transparent shader, which is set to write at "alpha test" queue, this is a bit different - if i remember correctly, transparent shaders usually don't write to depth buffer, but i tested and it appears to work so i decided to keep the depth write. Similarly, casting shadows for transparent shader is kind of wrong, but again i saw it worked, so same decision. :)
 
