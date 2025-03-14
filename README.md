@@ -26,6 +26,8 @@ Both shaders have same file structure, and almost same function names and functi
 
 TECHNICAL
 
+NOTE: to have a proper view of the visual effects offered by these shaders, it is recommended to use larger meshes that will be used as "hosts", please avoid using editor's stock primitives and the rescaling them. Best way is to create a cube of desired size in modeling application and export it as FBX. My shader examples are made to work with cube with 3m sides (so 3x3x3). If you try this with stock 1m cube, it will most likely have weird visual artifacts, so edit map() function in xxx_RAYCAST.cginc to scale down the SDF primitives to fit.
+
 I tested these shaders under Unity 2019 for Windows and Unity 2021 for Linux. The Unity 2019 has quirks under Linux (so does 2021, but there are workarounds one can find on internet). They should ofcourse work within forward rendering inside built-in rendering pipeline.
 
  The shaders are designed to write to depth buffer and have a shadowcaster passes. For opaque shader, set to render at "geometry" queue, this means you should get a rendered "object" that is equal to normal meshes in scene. For transparent shader, which is set to write at "alpha test" queue, this is a bit different - if i remember correctly, transparent shaders usually don't write to depth buffer, but i tested and it appears to work so i decided to keep the depth write. Similarly, casting shadows for transparent shader is kind of wrong, but again i saw it worked, so same decision. :)
