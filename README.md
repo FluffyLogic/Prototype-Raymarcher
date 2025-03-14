@@ -26,7 +26,7 @@ Both shaders have same file structure, and almost same function names and functi
 
 TECHNICAL
 
-NOTE: to have a proper view of the visual effects offered by these shaders, it is recommended to use larger meshes that will be used as "hosts", please avoid using editor's stock primitives and the rescaling them. Best way is to create a cube of desired size in modeling application and export it as FBX. My shader examples are made to work with cube with 3m sides (so 3x3x3). If you try this with stock 1m cube, it will most likely have weird visual artifacts, so edit map() function in xxx_RAYCAST.cginc to scale down the SDF primitives to fit.
+NOTE: to have a proper view of the visual effects offered by these shaders, it is recommended to use larger meshes that will be used as "hosts", please avoid rescaling them. Best way is to create a cube of desired size in modeling application and export it as FBX. My shader examples are made to work with cube with 3m sides (so 3x3x3). If you try this with stock 1m cube, it will most likely have weird visual artifacts, so edit map() function in xxx_RAYCAST.cginc to scale down the SDF primitives to fit. Ofcourse, also pay attention to have nice and clean UV so it all looks ok.
 
 I tested these shaders under Unity 2019 for Windows and Unity 2021 for Linux. The Unity 2019 has quirks under Linux (so does 2021, but there are workarounds one can find on internet). They should ofcourse work within forward rendering inside built-in rendering pipeline.
 
