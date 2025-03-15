@@ -1,4 +1,4 @@
-#ACKNOWLEDGEMENTS
+# ACKNOWLEDGEMENTS
 
 Firstly, i'd like to give credit where credit is due - without the kind souls here on the internet i would have never managed to cobble together these lines of code into something workable.
 
@@ -16,7 +16,7 @@ Where possible, i have added comments in code relating the used function to the 
 Since this is my pet project i intermittently worked on, i most likely managed to loose track of all authors whose published code i used to construct my own files.
 If i recall any more of them, i'll add them to the above list and/or mention in shader code where applicable.
 
-#DESCRIPTION
+# DESCRIPTION
 
  This is aimed at those wanting to learn and create a raymarching shader without too much hassle of figuring out the structure or required functions etc. Some shader knowlege is required to understand what is going on, so doing prior research will go a long way.
 Do note that these shaders are not perfect, there is certainly room for improvement and i may have wrongly used some shader API calls or have improperly written some of my own functions, so forgive me on that.
@@ -24,7 +24,7 @@ Do note that these shaders are not perfect, there is certainly room for improvem
  This is composed of an opaque and a transparent shader versions.
 Both shaders have same file structure, and almost same function names and function calls so one can do comparisons and (hopefully) learn from this.
 
-#TECHNICAL
+# TECHNICAL
 
 NOTE: to have a proper view of the visual effects offered by these shaders, it is recommended to use larger meshes that will be used as "hosts", please avoid rescaling them. Best way is to create a cube of desired size in modeling application and export it as FBX. My shader examples are made to work with cube with 3m sides (so 3x3x3). If you try this with stock 1m cube, it will most likely have weird visual artifacts, so edit map() function in xxx_RAYCAST.cginc to scale down the SDF primitives to fit. Ofcourse, also pay attention to have nice and clean UV so it all looks ok.
 
