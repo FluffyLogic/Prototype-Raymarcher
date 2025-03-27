@@ -335,10 +335,6 @@ float4 LightingAndShadowing (float3 pointObjectSpace, float3 normalObjectSpace, 
         normalWorldSpace, viewDirectionWorld,
         CreateLight(pointClipSpace, pointWorldSpace, normalWorldSpace, fresnel),
         CreateIndirectLight(pointWorldSpace, normalWorldSpace, viewDirectionWorld));
-    //note1 :   stepping from 0 transparency to any non-zero value abruptly turns on shadows.
-    //note2 :   spatial transitioning into spot/point light zone has a clearly visible boundary in editor
-    //          scene preview when another light is already covering that zone (like directional), dunno how to resolve it.
-    //          assumed this would properly fade out near lightsource zone boundaries but no bueno (look above comment on pbs lighting function).
     color.rgb = lerp(color.rgb, rrData.colors, GetTransparency());
     color.rgb += GetEmission();
     //this one has a quite pronounced visual effect ! could be more elaborate than this, if so desired.

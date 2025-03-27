@@ -93,65 +93,22 @@ float2x2 rot2 (float theta)
     return (rt);
 }
 
-#define mod(x, y) ((x) - (y) * floor ((x) / (y)))
-
-float3 hash33(float3 p)
-{
-  return frac(sin(float3(dot(p, float3(1.0, 57.0, 113.0)), dot(p, float3(57.0, 113.0, 1.0)),dot(p, float3(113.0, 1.0, 57.0)))) *43758.5453);
-}
-
-float voronoi31(float3 pCoordinate, float jitter)
-{
-    float3 iuv = floor(pCoordinate); //gets integer value without fraction
-    float3 fuv = frac(pCoordinate); // gets only the fractional part
-    float minDist = 1.0; // minimum distance
-    for (int y = -1; y <= 1; y++)
-        for (int x = -1; x <= 1; x++)
-            for (int z = -1; z <= 1; z++)
-            {
-                // position of neighbour on the grid
-                float3 neighbour = float3(float(x), float(y), float(z));
-                // pandom position from current + neighbour place in the grid
-                float3 pointv = hash33(iuv + neighbour);
-                // move the point with time
-                pointv = 0.5 + 0.5 * sin(jitter * 12.0 + 6.2236 * pointv); //each point moves in a certain way
-                // vector between the pixel and the point
-                float3 diff = neighbour + pointv - fuv;
-                // distance to the point, standard euclidean
-                float dist = length(diff);
-                // distance, manhattan
-                //float dist = abs(diff.x) + abs(diff.y) + abs(diff.z);
-                // keep the closer distance
-                minDist = min(minDist, dist);
-            }
-    //return the min distance (distance field)
-    return minDist;
-}
-
-#define MOD3 float3(.1031,.11369,.13787)
-
-float hash31(float3 p3)
-{
-    p3 = frac(p3 * MOD3);
-    p3 += dot(p3, p3.yzx + 19.19);
-    return -1.0 + 2.0 * frac((p3.x + p3.y) * p3.z);
-}
-
 // collective mesh scene for all SDFs. put here all math primitives you want displayed
 float map(float3 p)
 {
     // each example is in its own code block. to avoid confusion, please comment out all other unused examples to have a clear visual display
     float d1, d2, d3;
-    //example : ring and moving sphere
+
+    /*** example : ring and moving sphere ***/
     /*
     d1 = sdfSphere(p + float3(0.0, -0.5 + (sin(_Time.z) * 0.5 + 0.5), -0.1+ (cos(_Time.z) * 0.5 + 0.5)), 0.5);
     d2 = sdfTorus(p - float3(0.0, -0.1, +0.1), 0.3, 1.1);
     return smin(d1, d2, 0.2);
     */
 
-    //return sdfBox(p, float3(1.2, 1.2, 1.2)); // example : just a box
-    //return sdfBox(p, float3(1.0, 1.0, 1.0))-0.01; // example : box with slight beveling
-    //return sdfSphere(p, 1.49); // example : just a sphere
+    //return sdfBox(p, float3(1.2, 1.2, 1.2)); /*** example : just a box ***/
+    //return sdfBox(p, float3(1.0, 1.0, 1.0))-0.01; /*** example : box with slight beveling ***/
+    //return sdfSphere(p, 1.49); /*** example : just a sphere ***/
 
     /*
     WARNING : SCALING UP XYZ COMPONENTS OF P TO >1 CAUSES RAY-MISSING-ARTEFACTS
@@ -163,7 +120,8 @@ float map(float3 p)
     dist = mappingFunc(rayPoint);
     dist = dist / max(max(max(componentFactors.x, componentFactors.y), componentFactors.z), 1.0);
     */
-    // example :  twisting torus and twisting moving box
+
+    /*** example :  twisting torus and twisting moving box ***/
     float time = _Time.y;
     float3 pTorus = p;
     pTorus.yz = mul(rot2(sin(time / 0.66) * pTorus.x), pTorus.yz); // twist shapes along x
@@ -181,6 +139,7 @@ float map(float3 p)
     d2 = sdfBox(pBox, float3(0.3, 0.3, 0.3)) - 0.005; // mildly rounded edges
     return smin(d1, d2, 0.2); // smooth merger between two primitives
 }
+
 // max drawing distance. this is 1600 units in unscaled object space, so same as worldspace
 // this means if object in world space covers 1600 units in world space, the raymarcher will still cover that space
 #define MAX_DIST 1600.0
